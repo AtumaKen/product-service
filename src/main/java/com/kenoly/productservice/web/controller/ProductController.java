@@ -12,18 +12,18 @@ import java.util.UUID;
 public class ProductController {
 
     @GetMapping("/{productId}")
-    public ResponseEntity<ProductDto> getProductById(@PathVariable UUID productId){
+    public ResponseEntity<ProductDto> getProductById(@PathVariable("productId") UUID productId){
         //todo impl
         return new ResponseEntity<>(ProductDto.builder().build(), HttpStatus.OK);
     }
 
     @PostMapping()
-    public ResponseEntity saveNewProduct(@PathVariable ProductDto productDto){
+    public ResponseEntity saveNewProduct(@RequestBody ProductDto productDto){
     //todo impl
     return new ResponseEntity(HttpStatus.CREATED);
     }
 
-    @PutMapping
+    @PutMapping("/{productId}")
     public ResponseEntity updateProductById(@PathVariable("productId") UUID productId, @RequestBody ProductDto productDto){
         //todo impl
         return new ResponseEntity(HttpStatus.NO_CONTENT);
