@@ -3,8 +3,10 @@ package com.kenoly.productservice.web.controller;
 import com.kenoly.productservice.web.model.ProductDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
 @RequestMapping("/api/v1/product")
@@ -18,13 +20,13 @@ public class ProductController {
     }
 
     @PostMapping()
-    public ResponseEntity saveNewProduct(@RequestBody ProductDto productDto){
+    public ResponseEntity saveNewProduct(@RequestBody @Validated ProductDto productDto){
     //todo impl
     return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @PutMapping("/{productId}")
-    public ResponseEntity updateProductById(@PathVariable("productId") UUID productId, @RequestBody ProductDto productDto){
+    public ResponseEntity updateProductById(@PathVariable("productId") UUID productId, @RequestBody @Valid ProductDto productDto){
         //todo impl
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
